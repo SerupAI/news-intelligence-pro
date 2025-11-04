@@ -34,7 +34,7 @@
         "type": "string",
         "format": "uri"
       },
-      "editor": "stringList"
+      "editor": "select"
     },
     "keywords": {
       "title": "Keywords & Brand Monitoring",
@@ -43,7 +43,7 @@
       "items": {
         "type": "string"
       },
-      "editor": "stringList"
+      "editor": "select"
     },
     "enable_ai_analysis": {
       "title": "Enable AI Analysis",
@@ -152,7 +152,7 @@
         "type": "string",
         "format": "uri"
       },
-      "editor": "stringList"
+      "editor": "select"
     },
     "include_social_metrics": {
       "title": "Include Social Metrics",
