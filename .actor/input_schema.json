@@ -6,7 +6,7 @@
     "news_sources": {
       "title": "News Sources",
       "type": "array",
-      "description": "Select news sources to monitor. Choose from major outlets or add custom RSS feeds.",
+      "description": "Select news sources to monitor. Choose from major outlets.",
       "items": {
         "type": "string",
         "enum": [
@@ -14,11 +14,9 @@
           "bbc",
           "reuters",
           "ap_news",
-          "google_news",
           "tech_crunch",
           "bloomberg",
-          "financial_times",
-          "custom"
+          "financial_times"
         ]
       },
       "default": ["cnn", "bbc", "reuters"],
@@ -26,24 +24,11 @@
       "maxItems": 10,
       "editor": "select"
     },
-    "custom_rss_feeds": {
-      "title": "Custom RSS Feeds",
-      "type": "array",
-      "description": "Add custom RSS feed URLs (used when 'custom' is selected above)",
-      "items": {
-        "type": "string",
-        "format": "uri"
-      },
-      "editor": "json"
-    },
     "keywords": {
       "title": "Keywords & Brand Monitoring",
-      "type": "array",
-      "description": "Keywords, brand names, or topics to monitor in news articles. Leave empty to analyze all articles.",
-      "items": {
-        "type": "string"
-      },
-      "editor": "json"
+      "type": "string",
+      "description": "Keywords, brand names, or topics to monitor (comma-separated). Leave empty to analyze all articles.",
+      "editor": "textfield"
     },
     "enable_ai_analysis": {
       "title": "Enable AI Analysis",
@@ -82,25 +67,11 @@
       "description": "Extract people, companies, locations, and events mentioned in articles",
       "default": true
     },
-    "real_time_monitoring": {
-      "title": "Real-time Monitoring",
-      "type": "boolean",
-      "description": "Enable continuous monitoring for breaking news and alerts",
-      "default": false
-    },
     "date_range": {
       "title": "Date Range",
       "type": "string",
       "description": "Time period to analyze",
       "enum": ["1h", "6h", "1d", "3d", "7d", "30d"],
-      "enumTitles": [
-        "Last Hour",
-        "Last 6 Hours", 
-        "Last Day",
-        "Last 3 Days",
-        "Last Week",
-        "Last Month"
-      ],
       "default": "1d"
     },
     "max_articles": {
@@ -119,9 +90,9 @@
         "type": "string",
         "enum": ["en", "es", "fr", "de", "it", "pt", "zh", "ja", "ko", "ar"]
       },
-      "enumTitles": ["English", "Spanish", "French", "German", "Italian", "Portuguese", "Chinese", "Japanese", "Korean", "Arabic"],
       "default": ["en"],
-      "minItems": 1
+      "minItems": 1,
+      "editor": "select"
     },
     "industry_focus": {
       "title": "Industry Focus",
@@ -142,23 +113,8 @@
           "general"
         ]
       },
-      "default": ["general"]
-    },
-    "alert_webhooks": {
-      "title": "Alert Webhooks",
-      "type": "array",
-      "description": "Webhook URLs to receive real-time alerts for breaking news or keyword mentions",
-      "items": {
-        "type": "string",
-        "format": "uri"
-      },
-      "editor": "json"
-    },
-    "include_social_metrics": {
-      "title": "Include Social Metrics",
-      "type": "boolean",
-      "description": "Include social media engagement data when available",
-      "default": false
+      "default": ["general"],
+      "editor": "select"
     }
   },
   "required": ["news_sources"]

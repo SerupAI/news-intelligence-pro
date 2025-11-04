@@ -32,8 +32,9 @@ async def main():
         
         # Parse input parameters
         news_sources = actor_input.get('news_sources', ['cnn', 'bbc', 'reuters'])
-        custom_rss_feeds = actor_input.get('custom_rss_feeds', [])
-        keywords = actor_input.get('keywords', [])
+        custom_rss_feeds = []  # Removed from schema due to Apify constraints
+        keywords_str = actor_input.get('keywords', '')
+        keywords = [k.strip() for k in keywords_str.split(',') if k.strip()] if keywords_str else []
         enable_ai_analysis = actor_input.get('enable_ai_analysis', True)
         user_openai_key = actor_input.get('openai_api_key')
         max_articles = actor_input.get('max_articles', 1000)
