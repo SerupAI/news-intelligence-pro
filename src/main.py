@@ -59,7 +59,8 @@ async def main():
         )
         
         if not validation["valid"]:
-            await Actor.fail(f"Request validation failed: {validation['error']}")
+            Actor.log.error(f"Request validation failed: {validation['error']}")
+            await Actor.exit(exit_code=1)
             return
         
         Actor.log.info("💰 Cost Estimate:")
@@ -121,7 +122,8 @@ async def main():
         
         except Exception as e:
             Actor.log.error(f"Failed to aggregate news: {e}")
-            await Actor.fail(f"News aggregation failed: {str(e)}")
+            Actor.log.error(f"News aggregation failed: {str(e)}")
+            await Actor.exit(exit_code=1)
             return
         
         # Step 3: AI Analysis (if enabled)
@@ -136,7 +138,8 @@ async def main():
                 api_key = os.environ.get('OPENAI_API_KEY')
                 if not api_key:
                     Actor.log.error("No OpenAI API key available. Please provide your API key or use the free tier without AI analysis.")
-                    await Actor.fail("OpenAI API key required for AI analysis")
+                    Actor.log.error("OpenAI API key required for AI analysis")
+                    await Actor.exit(exit_code=1)
                     return
                 Actor.log.info("Using built-in OpenAI API key")
             

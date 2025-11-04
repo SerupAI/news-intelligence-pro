@@ -38,10 +38,10 @@ NEWS_SOURCES = {
     "reuters": {
         "name": "Reuters",
         "rss_feeds": [
-            "https://www.reuters.com/rssFeed/topNews",
-            "https://www.reuters.com/rssFeed/worldNews",
-            "https://www.reuters.com/rssFeed/businessNews",
-            "https://www.reuters.com/rssFeed/technologyNews"
+            "https://feeds.reuters.com/reuters/topNews",
+            "https://feeds.reuters.com/reuters/worldNews", 
+            "https://feeds.reuters.com/reuters/businessNews",
+            "https://feeds.reuters.com/reuters/technologyNews"
         ],
         "domain": "reuters.com",
         "credibility_score": 0.95
@@ -249,8 +249,8 @@ class NewsAggregator:
             if len(articles) >= max_articles:
                 break
         
-        # Sort by publication date (newest first)
-        articles.sort(key=lambda x: x.get('published_at', ''), reverse=True)
+        # Sort by publication date (newest first), handle None values
+        articles.sort(key=lambda x: x.get('published_at') or '1970-01-01T00:00:00Z', reverse=True)
         
         return articles[:max_articles]
 
