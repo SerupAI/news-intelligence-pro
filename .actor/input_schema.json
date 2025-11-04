@@ -33,7 +33,8 @@
       "items": {
         "type": "string",
         "format": "uri"
-      }
+      },
+      "editor": "json"
     },
     "keywords": {
       "title": "Keywords & Brand Monitoring",
@@ -41,7 +42,8 @@
       "description": "Keywords, brand names, or topics to monitor in news articles. Leave empty to analyze all articles.",
       "items": {
         "type": "string"
-      }
+      },
+      "editor": "json"
     },
     "enable_ai_analysis": {
       "title": "Enable AI Analysis",
@@ -149,7 +151,8 @@
       "items": {
         "type": "string",
         "format": "uri"
-      }
+      },
+      "editor": "json"
     },
     "include_social_metrics": {
       "title": "Include Social Metrics",
