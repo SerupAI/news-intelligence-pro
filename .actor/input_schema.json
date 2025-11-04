@@ -1,15 +1,164 @@
 {
-    "title": "Scrape data from a web page",
-    "type": "object",
-    "schemaVersion": 1,
-    "properties": {
-        "url": {
-            "title": "URL of the page",
-            "type": "string",
-            "description": "The URL of website you want to get the data from.",
-            "editor": "textfield",
-            "prefill": "https://www.apify.com/"
-        }
+  "title": "News Intelligence Pro Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "news_sources": {
+      "title": "News Sources",
+      "type": "array",
+      "description": "Select news sources to monitor. Choose from major outlets or add custom RSS feeds.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "cnn",
+          "bbc",
+          "reuters",
+          "ap_news",
+          "google_news",
+          "tech_crunch",
+          "bloomberg",
+          "financial_times",
+          "custom"
+        ]
+      },
+      "default": ["cnn", "bbc", "reuters"],
+      "minItems": 1,
+      "maxItems": 10
     },
-    "required": ["url"]
+    "custom_rss_feeds": {
+      "title": "Custom RSS Feeds",
+      "type": "array",
+      "description": "Add custom RSS feed URLs (used when 'custom' is selected above)",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "editor": "stringList"
+    },
+    "keywords": {
+      "title": "Keywords & Brand Monitoring",
+      "type": "array",
+      "description": "Keywords, brand names, or topics to monitor in news articles. Leave empty to analyze all articles.",
+      "items": {
+        "type": "string"
+      },
+      "editor": "stringList"
+    },
+    "enable_ai_analysis": {
+      "title": "Enable AI Analysis",
+      "type": "boolean",
+      "description": "Enable sentiment analysis, summarization, and categorization (uses built-in AI - costs $6 per 1,000 articles)",
+      "default": true
+    },
+    "openai_api_key": {
+      "title": "OpenAI API Key (BYOK)",
+      "type": "string",
+      "description": "Provide your own OpenAI API key for unlimited usage (pricing: $2 per 1,000 articles). Leave empty to use built-in AI.",
+      "isSecret": true,
+      "editor": "textfield"
+    },
+    "sentiment_analysis": {
+      "title": "Sentiment Analysis",
+      "type": "boolean",
+      "description": "Analyze emotional tone of articles (positive, negative, neutral)",
+      "default": true
+    },
+    "summarization": {
+      "title": "Article Summarization",
+      "type": "boolean",
+      "description": "Generate AI-powered summaries of long articles",
+      "default": true
+    },
+    "topic_classification": {
+      "title": "Topic Classification",
+      "type": "boolean", 
+      "description": "Automatically categorize articles by topic (Politics, Business, Tech, etc.)",
+      "default": true
+    },
+    "entity_extraction": {
+      "title": "Entity Recognition",
+      "type": "boolean",
+      "description": "Extract people, companies, locations, and events mentioned in articles",
+      "default": true
+    },
+    "real_time_monitoring": {
+      "title": "Real-time Monitoring",
+      "type": "boolean",
+      "description": "Enable continuous monitoring for breaking news and alerts",
+      "default": false
+    },
+    "date_range": {
+      "title": "Date Range",
+      "type": "string",
+      "description": "Time period to analyze",
+      "enum": ["1h", "6h", "1d", "3d", "7d", "30d"],
+      "enumTitles": [
+        "Last Hour",
+        "Last 6 Hours", 
+        "Last Day",
+        "Last 3 Days",
+        "Last Week",
+        "Last Month"
+      ],
+      "default": "1d"
+    },
+    "max_articles": {
+      "title": "Maximum Articles",
+      "type": "integer",
+      "description": "Maximum number of articles to analyze",
+      "default": 1000,
+      "minimum": 10,
+      "maximum": 10000
+    },
+    "languages": {
+      "title": "Languages",
+      "type": "array",
+      "description": "Languages to include in analysis",
+      "items": {
+        "type": "string",
+        "enum": ["en", "es", "fr", "de", "it", "pt", "zh", "ja", "ko", "ar"]
+      },
+      "enumTitles": ["English", "Spanish", "French", "German", "Italian", "Portuguese", "Chinese", "Japanese", "Korean", "Arabic"],
+      "default": ["en"],
+      "minItems": 1
+    },
+    "industry_focus": {
+      "title": "Industry Focus",
+      "type": "array",
+      "description": "Focus on specific industries for enhanced analysis",
+      "items": {
+        "type": "string",
+        "enum": [
+          "technology",
+          "finance",
+          "healthcare", 
+          "politics",
+          "sports",
+          "entertainment",
+          "business",
+          "science",
+          "environment",
+          "general"
+        ]
+      },
+      "default": ["general"]
+    },
+    "alert_webhooks": {
+      "title": "Alert Webhooks",
+      "type": "array",
+      "description": "Webhook URLs to receive real-time alerts for breaking news or keyword mentions",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "editor": "stringList"
+    },
+    "include_social_metrics": {
+      "title": "Include Social Metrics",
+      "type": "boolean",
+      "description": "Include social media engagement data when available",
+      "default": false
+    }
+  },
+  "required": ["news_sources"]
 }
