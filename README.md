@@ -8,9 +8,9 @@ Built for the Apify $1M Challenge by Serup.ai. Transform raw news data into acti
 
 ### Multi-Source News Aggregation
 - **Major News Outlets**: CNN, BBC, Reuters, AP News, Bloomberg, Financial Times, TechCrunch
-- **Custom RSS Feeds**: Add any RSS feed for specialized coverage
-- **Real-time Monitoring**: Continuous news tracking with alerts
+- **Real-time Monitoring**: Continuous news tracking from trusted sources
 - **Global Coverage**: Multi-language support and regional sources
+- **Smart Filtering**: Keyword-based content filtering and relevance scoring
 
 ### AI-Powered Analysis
 - **Sentiment Analysis**: Emotional tone detection with confidence scores
@@ -23,7 +23,7 @@ Built for the Apify $1M Challenge by Serup.ai. Transform raw news data into acti
 - **Brand Monitoring**: Track mentions of your company or competitors
 - **Market Sentiment**: Industry-specific mood tracking and analysis  
 - **Competitor Analysis**: Share of voice and sentiment comparison
-- **Breaking News Alerts**: Real-time notifications via webhooks
+- **Breaking News Detection**: Identify trending stories and viral content
 - **Historical Analysis**: Trend patterns and forecasting
 
 ## 💰 Flexible Pricing Tiers
@@ -49,38 +49,51 @@ Built for the Apify $1M Challenge by Serup.ai. Transform raw news data into acti
 
 ## 🚀 Quick Start
 
-### Basic News Aggregation
+### Simple Example - Basic News Feed (No AI)
 ```json
 {
-  "news_sources": ["cnn", "bbc", "reuters"],
-  "max_articles": 100,
-  "date_range": "1d"
+  "news_sources": ["cnn", "bbc"],
+  "enable_ai_analysis": false,
+  "date_range": "1d",
+  "max_articles": 100
 }
 ```
+**Use case**: Free tier - Basic news aggregation without AI analysis. Perfect for RSS replacement or simple monitoring.
 
-### Brand Monitoring Setup
+### Medium Example - Brand Monitoring (Built-in AI)
 ```json
 {
-  "news_sources": ["cnn", "bbc", "tech_crunch", "bloomberg"],
-  "keywords": ["your-company", "competitor-name", "industry-term"],
+  "news_sources": ["reuters", "bloomberg", "tech_crunch"],
+  "keywords": "Tesla, Elon Musk, electric vehicles",
   "enable_ai_analysis": true,
   "sentiment_analysis": true,
-  "alert_webhooks": ["https://your-endpoint.com/news-alerts"],
-  "max_articles": 500
+  "entity_extraction": true,
+  "date_range": "7d",
+  "max_articles": 500,
+  "languages": ["en"],
+  "industry_focus": ["technology", "business"]
 }
 ```
+**Use case**: Built-in AI ($6/1K articles) - Track brand sentiment and mentions. Ideal for PR teams and brand managers.
 
-### Enterprise BYOK Configuration
+### Complex Example - Enterprise Intelligence (BYOK)
 ```json
 {
-  "news_sources": ["cnn", "bbc", "reuters", "bloomberg"],
-  "openai_api_key": "sk-your-key-here",
+  "news_sources": ["reuters", "bloomberg", "financial_times", "ap_news", "tech_crunch"],
+  "keywords": "AI regulation, ChatGPT, Microsoft, Google, artificial intelligence policy",
   "enable_ai_analysis": true,
+  "openai_api_key": "sk-YOUR-OPENAI-KEY",
+  "sentiment_analysis": true,
   "summarization": true,
   "topic_classification": true,
-  "max_articles": 5000
+  "entity_extraction": true,
+  "date_range": "30d",
+  "max_articles": 10000,
+  "languages": ["en", "es", "fr"],
+  "industry_focus": ["technology", "finance", "politics"]
 }
 ```
+**Use case**: BYOK tier ($2/1K articles) - Unlimited AI analysis with your own OpenAI key. Perfect for enterprises, hedge funds, and research firms needing massive scale.
 
 ## 📊 Output Data Structure
 
@@ -161,7 +174,7 @@ Built for the Apify $1M Challenge by Serup.ai. Transform raw news data into acti
 - **Intelligent Rate Limiting**: Respectful request throttling
 - **Robust Error Handling**: Automatic retry and recovery
 - **Content Moderation**: Built-in safety and content filtering
-- **Webhook Integration**: Real-time alerts and notifications
+- **Dataset Export**: Rich data output in Apify dataset format
 
 ### Data Quality & Reliability
 - **Source Credibility Scoring**: Quality ratings for news sources
