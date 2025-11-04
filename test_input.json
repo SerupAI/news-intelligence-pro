@@ -1,0 +1,12 @@
+{
+  "news_sources": ["cnn", "bbc", "reuters"],
+  "keywords": ["AI", "technology", "OpenAI"],
+  "enable_ai_analysis": true,
+  "sentiment_analysis": true,
+  "summarization": true,
+  "topic_classification": true,
+  "entity_extraction": true,
+  "date_range": "1d",
+  "max_articles": 50,
+  "languages": ["en"]
+}

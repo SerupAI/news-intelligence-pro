@@ -1,0 +1,39 @@
+# News Intelligence Pro Dependencies
+
+# Apify SDK
+apify < 4.0.0
+
+# Web scraping and parsing
+beautifulsoup4[lxml]
+httpx
+requests>=2.31.0
+
+# AI and NLP
+openai>=1.25.0
+tiktoken>=0.5.0
+
+# RSS and feed processing
+feedparser>=6.0.10
+
+# Data processing
+pandas>=2.1.0
+numpy>=1.24.0
+
+# Date and time handling
+python-dateutil>=2.8.2
+
+# Text processing
+nltk>=3.8.1
+textblob>=0.17.1
+
+# Async processing
+aiohttp>=3.8.5
+
+# Utilities
+validators>=0.20.0
+tldextract>=3.4.4
+pydantic>=2.3.0
+
+# Type hints
+types-beautifulsoup4
+types-requests

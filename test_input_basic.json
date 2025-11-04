@@ -1,0 +1,6 @@
+{
+  "news_sources": ["cnn", "bbc"],
+  "enable_ai_analysis": false,
+  "date_range": "1d",
+  "max_articles": 10
+}

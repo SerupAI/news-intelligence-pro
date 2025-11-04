@@ -1,0 +1,53 @@
+{
+    "actorSpecification": 1,
+    "name": "news-intelligence-pro",
+    "title": "News Intelligence Pro",
+    "description": "AI-powered news aggregation and analysis tool with real-time sentiment analysis, trend detection, and business intelligence. Perfect for brand monitoring, market research, and competitive intelligence.",
+    "version": "1.0.0",
+    "categories": [
+        "NEWS",
+        "BUSINESS",
+        "MARKETING",
+        "AI"
+    ],
+    "dockerfile": "./Dockerfile",
+    "readme": "./README.md",
+    "inputSchema": "./input_schema.json",
+    "storages": {
+        "dataset": {
+            "actorSpecification": 1,
+            "title": "News Articles with AI Analysis",
+            "description": "News articles enriched with sentiment analysis, topic classification, entity recognition, and business intelligence insights",
+            "views": {
+                "overview": {
+                    "title": "Overview",
+                    "description": "Overview of all analyzed news articles",
+                    "transformation": {
+                        "fields": [
+                            "title",
+                            "source.name",
+                            "published_at",
+                            "analysis.sentiment.label",
+                            "analysis.sentiment.score",
+                            "analysis.categories",
+                            "url"
+                        ]
+                    }
+                },
+                "sentiment": {
+                    "title": "Sentiment Analysis",
+                    "description": "Focus on sentiment scores and analysis",
+                    "transformation": {
+                        "fields": [
+                            "title",
+                            "analysis.sentiment",
+                            "analysis.keywords",
+                            "analysis.entities",
+                            "published_at"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
