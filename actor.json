@@ -21,29 +21,25 @@
             "views": {
                 "overview": {
                     "title": "Overview",
-                    "description": "Overview of all analyzed news articles",
+                    "description": "Quick view of news articles with key insights",
                     "transformation": {
                         "fields": [
                             "title",
-                            "source.name",
-                            "published_at",
-                            "analysis.sentiment.label",
-                            "analysis.sentiment.score",
-                            "analysis.categories",
-                            "url"
+                            "summary",
+                            "url",
+                            "published_at"
                         ]
                     }
                 },
-                "sentiment": {
-                    "title": "Sentiment Analysis",
-                    "description": "Focus on sentiment scores and analysis",
+                "analysis": {
+                    "title": "AI Analysis",
+                    "description": "Complete AI analysis with sentiment, entities, and keywords",
                     "transformation": {
                         "fields": [
                             "title",
-                            "analysis.sentiment",
-                            "analysis.keywords",
-                            "analysis.entities",
-                            "published_at"
+                            "url",
+                            "published_at",
+                            "analysis"
                         ]
                     }
                 }
