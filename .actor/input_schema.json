@@ -23,7 +23,8 @@
       },
       "default": ["cnn", "bbc", "reuters"],
       "minItems": 1,
-      "maxItems": 10
+      "maxItems": 10,
+      "editor": "select"
     },
     "custom_rss_feeds": {
       "title": "Custom RSS Feeds",
